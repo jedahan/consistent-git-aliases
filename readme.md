@@ -1,45 +1,19 @@
-# oh-my-zsh git plugin
-This plugin is a complete replacement for the default oh-my-zsh git plugin,
-and provides quite a few useful aliases and functions.
-The motivation to replace the default plugin stems from the fact
-that it comes with some inconsistencies that make a few popular commands
-rather unintuitive:
-* `gcm='git checkout master'`: this is inconsistent with `gco='git checkout'`,  
- and on top of that it steals what should be the shortcut for `git commit -m`.
-* Similar issues with `git log`: half of the commands use `glg`, the other half `gl`,  
-  but `gl` by itself is `git pull` (!?), for which `gpl` would make more sense.
-* ...
+# consistent git aliases
 
-The efficiency of these shortcuts is kind of lost when you have to remember
-different letters for the same subcommand depending on the parameter(s)
-you're using ...
+This plugin takes the hard work and thinking from [@davidde/git](https://github.com/davidde/git) 
+to provide a framework-agnostic set of consistent git aliases.
 
-In this plugin, great care care is taken to make sure all aliases are the most
-intuitive they can possibly be.  
-On top of that, quite a few extra functions are added.
+[@jedahan](https://github.com/jedahan) basically just removed the custom functions and OMZ specific stuff.
 
+To use this, just source it somewhere in your zshrc
 
-## Installation
-To use this plugin, clone this repo to `~/.oh-my-zsh/custom/plugins`:
-```
-git clone https://github.com/davidde/git.git ~/.oh-my-zsh/custom/plugins/git
-```
-This will automatically override the default git plugin.
-If you aren't yet using the default plugin,  
-add `git` to the plugins in your `~/.zshrc` file:
-```
-plugins=(git)
-```
-
-
-## Aliases
+# Aliases
 
 | Alias           | Command                                                   |
 |:----------------|:----------------------------------------------------------|
 | **g**           | git                                                       |
 | **ga**          | git add                                                   |
 | **gaa**         | git add --all                                             |
-| **galias**      | git_list_aliases                                          |
 | **gam**         | **g**it commit --**a**mend -**m**                         |
 | **gama**        | **g**it commit --**a**mend -**m** --**a**ll               |
 | **gan**         | **g**it commit --**a**mend --**n**o-edit                  |
@@ -49,7 +23,6 @@ plugins=(git)
 | **gbd**         | git branch --delete                                       |
 | **gbdf**        | git branch --delete --force                               |
 | **gbl**         | git blame                                                 |
-| **gbll**        | git_blame_line *\<file> [\<from line>] [\<to line>]*      |
 | **gbls**        | git branch --list \| cat                                  |
 | **gbs**         | git bisect                                                |
 | **gbsb**        | git bisect bad                                            |
@@ -67,14 +40,10 @@ plugins=(git)
 | **gcm**         | git commit -m                                             |
 | **gcmg**        | git commit -m --gpg-sign                                  |
 | **gcms**        | git commit -m --signoff                                   |
-| **gcnt**        | git_count                                                 |
-| **gcnta**       | git_count_all                                             |
 | **gco**         | git checkout                                              |
 | **gcob**        | git checkout -b                                           |
-| **gcoc**        | git_checkout_child                                        |
 | **gcod**        | git checkout develop                                      |
 | **gcom**        | git checkout master                                       |
-| **gcop**        | git_checkout_parent                                       |
 | **gcp**         | git cherry-pick                                           |
 | **gcpa**        | git cherry-pick --abort                                   |
 | **gcpc**        | git cherry-pick --continue                                |
@@ -85,14 +54,12 @@ plugins=(git)
 | **gdstp**       | git diff stash@{0}^ stash@{0}                             |
 | **gf**          | git fetch                                                 |
 | **gfo**         | git fetch origin                                          |
-| **ggb**         | "git graph branches"                                      |
+| **ggb**         | git graph branches                                        |
 | **gl**          | git log --name-status                                     |
-| **glf**         | git_log_file *\<file> [\<from line>] [\<to line>]*        |
 | **glg**         | git log --graph                                           |
 | **glgo**        | git log --graph --oneline                                 |
 | **glgs**        | git log --graph --stat                                    |
 | **glo**         | git log --oneline                                         |
-| **gloc**        | git_loc *\<Line-of-Code> [\<file>]*                       |
 | **glog**        | git log                                                   |
 | **glr**         | git log --reverse --name-status                           |
 | **gls**         | git ls-files                                              |
@@ -110,12 +77,11 @@ plugins=(git)
 | **gplrs**       | git pull --recurse-submodules                             |
 | **gr**          | git reset                                                 |
 | **grhard**      | git reset --hard                                          |
+| **grhardh**     | git reset --hard HEAD                                     |
 | **grk**         | git reset --keep                                          |
+| **grkh**        | git reset --keep HEAD                                     |
 | **grs**         | git reset --soft                                          |
-| **grh**         | git_reset_head                                            |
-| **grhhard**     | git_reset_head --hard                                     |
-| **grhk**        | git_reset_head --keep                                     |
-| **grhs**        | git_reset_head --soft                                     |
+| **grsh**        | git reset --soft HEAD                                     |
 | **grb**         | git rebase                                                |
 | **grbm**        | git rebase master                                         |
 | **grem**        | git remote                                                |
@@ -127,8 +93,6 @@ plugins=(git)
 | **grm**         | git rm                                                    |
 | **gs**          | git status                                                |
 | **gsh**         | git show                                                  |
-| **gshsf**       | git_show_stash_file *\<file> [\<stash number>]*           |
-| **gss**         | git_status_short                                          |
 | **gst**         | git stash                                                 |
 | **gsta**        | git stash apply                                           |
 | **gstd**        | git stash drop                                            |
@@ -146,14 +110,3 @@ plugins=(git)
 | **gtl**         | git tag --list                                            |
 | **gtls**        | git tag --list \| cat                                     |
 | **gwch**        | git whatchanged -p                                        |
-
-&nbsp;
-
-> :warning: **Note:**  
-> The commands above are optimized for memorability,  
-> and may not correspond exactly with the actual alias implementation.
-
-Check out usage, clarifications and alias/function implementation in
-your local [git.plugin.zsh](./git.plugin.zsh) or the
-[repo's source](https://github.com/davidde/git/blob/master/git.plugin.zsh).
-
