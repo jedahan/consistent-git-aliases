@@ -1,6 +1,7 @@
 alias g='git'
 
 alias ga='git add'
+alias gai='git add --interactive --patch'
 alias gaa='git add --all'
 
 # Amend the most recent local commit

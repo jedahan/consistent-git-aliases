@@ -14,6 +14,7 @@ To use this, just source it somewhere in your zshrc
 | **g**           | git                                                       |
 | **ga**          | git add                                                   |
 | **gaa**         | git add --all                                             |
+| **gai**         | git add --interactive --patch                             |
 | **gam**         | **g**it commit --**a**mend -**m**                         |
 | **gama**        | **g**it commit --**a**mend -**m** --**a**ll               |
 | **gan**         | **g**it commit --**a**mend --**n**o-edit                  |
