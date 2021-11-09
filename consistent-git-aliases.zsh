@@ -75,6 +75,10 @@ alias gpl='git pull'
 alias gplr='git pull --rebase'
 alias gplrs='git pull --recurse-submodules'
 
+# use switch instead of checkout
+alias gsw='git switch'
+alias gswc='git switch --create'
+
 # `grhard` is intentionally more verbose because `--hard` is unsafe;
 # there is no way to recover uncommitted changes.
 # In general the `--keep` flag is preferable. It will do exactly the same,

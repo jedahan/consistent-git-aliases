@@ -102,6 +102,8 @@ To use this, just source it somewhere in your zshrc
 | **gstp**        | git stash pop                                             |
 | **gstsl**       | git stash show -l                                         |
 | **gstsp**       | git stash show -p                                         |
+| **gsw**         | git switch                                                |
+| **gswc**        | git switch --create                                       |
 | **gsubi**       | git submodule update --init                               |
 | **gsubu**       | git submodule update --remote --merge                     |
 | **gt**          | git tag                                                   |
