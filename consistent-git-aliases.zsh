@@ -2,8 +2,9 @@ default_branch=$(git config init.defaultbranch || echo main)
 alias g='git'
 
 alias ga='git add'
-alias gai='git add --interactive --patch'
 alias gaa='git add --all'
+alias gap='git add --patch'
+alias gai='git add --interactive --patch'
 
 # Amend the most recent local commit
 alias gam='git commit --amend -m' # Only change commit message (optionally 'git add' files)
@@ -114,7 +115,11 @@ alias gsta='git stash apply'
 alias gstd='git stash drop'
 alias gstl='git stash list'
 alias gstls='git stash list | cat'
-alias gstp='git stash pop'
+alias gstp='git stash push'
+alias gstpop='git stash pop'
+alias gsub='git submodule'
+alias gsuba='git submodule add'
+alias gsubs='git submodule status'
 # Show the diff between latest stash and local working tree:
 alias gstsl='git stash show -l' # = git diff stash@{0}
 # Show the diff between latest stash and its original parent commit:

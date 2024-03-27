@@ -14,6 +14,7 @@ To use this, just source it somewhere in your zshrc
 | **g**           | git                                                       |
 | **ga**          | git add                                                   |
 | **gaa**         | git add --all                                             |
+| **gap**         | git add --patch                                           |
 | **gai**         | git add --interactive --patch                             |
 | **gam**         | **g**it commit --**a**mend -**m**                         |
 | **gama**        | **g**it commit --**a**mend -**m** --**a**ll               |
@@ -99,11 +100,15 @@ To use this, just source it somewhere in your zshrc
 | **gstd**        | git stash drop                                            |
 | **gstl**        | git stash list                                            |
 | **gstls**       | git stash list \| cat                                     |
-| **gstp**        | git stash pop                                             |
+| **gstp**        | git stash push                                            |
+| **gstpop**      | git stash pop                                             |
 | **gstsl**       | git stash show -l                                         |
 | **gstsp**       | git stash show -p                                         |
 | **gsw**         | git switch                                                |
 | **gswc**        | git switch --create                                       |
+| **gsub**        | git submodule                                             |
+| **gsuba**       | git submodule add                                         |
+| **gsubs**       | git submodule status                                      |
 | **gsubi**       | git submodule update --init                               |
 | **gsubu**       | git submodule update --remote --merge                     |
 | **gt**          | git tag                                                   |
