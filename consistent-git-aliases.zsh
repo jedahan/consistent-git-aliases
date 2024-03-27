@@ -1,3 +1,4 @@
+default_branch=$(git config init.defaultbranch || echo main)
 alias g='git'
 
 alias ga='git add'
@@ -36,7 +37,7 @@ alias gcms='git commit --signoff -m'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gcod='git checkout develop'
-alias gcom='git checkout master'
+alias gcom="git checkout $default_branch"
 alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
@@ -62,8 +63,8 @@ alias glr='glog --reverse --name-status'
 alias gls='git ls-files'
 
 alias gm='git merge'
-alias gmom='git merge origin/master'
-alias gmum='git merge upstream/master'
+alias gmom="git merge origin/$default_branch"
+alias gmum="git merge upstream/$default_branch"
 alias gmv='git mv'
 
 alias gp='git push'
@@ -94,7 +95,7 @@ alias grkh='git reset --keep HEAD'
 alias grs='git reset --soft' # Keep changes, and keep them staged
 alias grsh='git reset --soft HEAD'
 alias grb='git rebase'
-alias grbm='git rebase master'
+alias grbm="git rebase $default_branch"
 alias grem='git remote'
 alias grema='git remote add'
 alias gremset='git remote set-url'
